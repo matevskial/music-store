@@ -38,6 +38,9 @@ public class Main {
   }
 
   private static void printArtists() throws SQLException {
+    // This syntax is actualyl try-with-resources
+    // it means that in this case, after the code inside try finsihes
+    // java will call statement.close()
     try(Statement statement = con.createStatement()) {
       String query = "select id, name from artists";
       System.out.println("ID      Name");
